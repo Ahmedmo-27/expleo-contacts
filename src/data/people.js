@@ -1,5 +1,5 @@
 export const WEBSITE = 'https://expleo.com/global/en/'
-export const BASE_URL = 'https://expleo-aea29.netlify.app'
+export const BASE_URL = 'https://project-vb9rg.vercel.app/'
 
 export const people = [
   {
