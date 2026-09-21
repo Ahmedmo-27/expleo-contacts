@@ -83,11 +83,8 @@ After deploying, the QR codes automatically encode the correct live URLs (e.g. `
 
 ---
 
-## The 4 QR Code URLs
+## The QR Code URLs
 
 | # | Person | URL |
 |---|--------|-----|
-| 1 | Karim El-Shishiny | `/person/1` |
-| 2 | Ehab Elsayed | `/person/2` |
-| 3 | Mohamed Mustafa | `/person/3` |
-| 4 | Farah Farghali | `/person/4` |
+| 1 | Eman Kamel Hassan | `/person/1` |

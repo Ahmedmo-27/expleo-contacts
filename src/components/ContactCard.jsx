@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import QRCodeCanvas from './QRCodeCanvas'
-import { IconPhone, IconMail, IconLink, IconChevronRight } from './Icons'
+import { IconPhone, IconBuilding, IconMail, IconLink, IconChevronRight } from './Icons'
 import { BASE_URL } from '../data/people'
 import styles from './ContactCard.module.css'
 
@@ -14,7 +14,10 @@ export default function ContactCard({ person }) {
       <div className={styles.accent} />
 
       <div className={styles.body}>
-        <p className={styles.role}>{person.title}</p>
+        <div className={styles.titleGroup}>
+          <p className={styles.role}>{person.title}</p>
+          {person.titleAr && <p className={styles.roleAr} dir="rtl">{person.titleAr}</p>}
+        </div>
         <h2 className={styles.name}>{person.name}</h2>
 
         <ul className={styles.infoList}>
@@ -22,6 +25,12 @@ export default function ContactCard({ person }) {
             <IconPhone />
             <span>{person.mobile}</span>
           </li>
+          {(person.companyPhone || person.companyNumber) && (
+            <li className={styles.infoRow}>
+              <IconBuilding />
+              <span>{person.companyPhone || person.companyNumber}</span>
+            </li>
+          )}
           <li className={styles.infoRow}>
             <IconMail />
             <span>{person.email}</span>

@@ -40,7 +40,8 @@
   font-size: 15px;
   color: var(--off-white);
   font-weight: 500;
-  word-break: break-all;
+  word-break: break-word;
+  overflow-wrap: break-word;
   line-height: 1.4;
 }
 

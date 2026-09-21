@@ -2,7 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { people, WEBSITE, BASE_URL } from '../data/people'
 import DetailRow from '../components/DetailRow'
 import QRCodeCanvas from '../components/QRCodeCanvas'
-import { IconPhone, IconMail, IconLink, IconArrowLeft } from '../components/Icons'
+import { IconPhone, IconBuilding, IconMail, IconLink, IconArrowLeft } from '../components/Icons'
 import styles from './PersonPage.module.css'
 import NotFoundPage from './NotFoundPage'
 
@@ -25,11 +25,35 @@ export default function PersonPage() {
           <div className={styles.avatar}>{person.initials}</div>
           <h1 className={styles.name}>{person.name}</h1>
           <p className={styles.title}>{person.title}</p>
+          {person.titleAr && <p className={styles.titleAr} dir="rtl">{person.titleAr}</p>}
         </div>
 
         {/* DETAILS */}
         <div className={styles.details}>
-          <DetailRow icon={<IconPhone />} label="Mobile"  value={person.mobile} href={`tel:${person.mobile}`} />
+          <DetailRow
+            icon={<IconPhone />}
+            label="Mobile"
+            value={
+              person.mobile.includes(' - ') ? (
+                <>
+                  <a href={`tel:${person.mobile.split(' - ')[0].trim()}`}>{person.mobile.split(' - ')[0].trim()}</a>
+                  {' - '}
+                  <a href={`tel:${person.mobile.split(' - ')[1].trim()}`}>{person.mobile.split(' - ')[1].trim()}</a>
+                </>
+              ) : (
+                person.mobile
+              )
+            }
+            href={person.mobile.includes(' - ') ? undefined : `tel:${person.mobile}`}
+          />
+          {(person.companyNumber || person.companyPhone) && (
+            <DetailRow
+              icon={<IconBuilding />}
+              label="Company Number"
+              value={person.companyNumber || person.companyPhone}
+              href={`tel:${(person.companyNumber || person.companyPhone).replace(/\s+/g, '')}`}
+            />
+          )}
           <DetailRow icon={<IconMail />}  label="Email"   value={person.email}  href={`mailto:${person.email}`} />
           <DetailRow icon={<IconLink />}  label="Website" value={WEBSITE}       href={WEBSITE} />
         </div>

@@ -6,6 +6,14 @@ export function IconPhone({ size = 18 }) {
   )
 }
 
+export function IconBuilding({ size = 18 }) {
+  return (
+    <svg width={size} height={size} fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+      <path d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 9h1M9 13h1M9 17h1M14 9h1M14 13h1M14 17h1" />
+    </svg>
+  )
+}
+
 export function IconMail({ size = 18 }) {
   return (
     <svg width={size} height={size} fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">

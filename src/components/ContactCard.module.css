@@ -43,13 +43,27 @@
   flex: 1;
 }
 
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
 .role {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 2.5px;
   color: var(--accent2);
   text-transform: uppercase;
-  margin-bottom: 8px;
+}
+
+.roleAr {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: normal;
+  line-height: 1.4;
 }
 
 .name {
@@ -83,7 +97,8 @@
 }
 
 .infoRow span {
-  word-break: break-all;
+  word-break: break-word;
+  overflow-wrap: break-word;
   line-height: 1.4;
 }
 
