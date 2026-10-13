@@ -25,12 +25,6 @@ export default function ContactCard({ person }) {
             <IconPhone />
             <span>{person.mobile}</span>
           </li>
-          {(person.companyPhone || person.companyNumber) && (
-            <li className={styles.infoRow}>
-              <IconBuilding />
-              <span>{person.companyPhone || person.companyNumber}</span>
-            </li>
-          )}
           <li className={styles.infoRow}>
             <IconMail />
             <span>{person.email}</span>
